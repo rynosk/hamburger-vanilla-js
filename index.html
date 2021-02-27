@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>humberger</title>
+</head>
+
+<body>
+  <header>
+    <nav id="nav">
+      <ul>
+        <li>寿司</li>
+        <li>ラーメン</li>
+        <li>ピザ</li>
+      </ul>
+    </nav>
+    <div id="humberger">
+      <span class="bar" id="bar1"></span>
+      <span class="bar" id="bar2"></span>
+      <span class="bar" id="bar3"></span>
+    </div>
+    <h1>humberger</h1>
+  </header>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: turquoise;
+    }
+
+    header {
+      position: fixed;
+      width: 100vw;
+      height: 90px;
+      background-color: skyblue;
+    }
+
+    #nav {
+      position: absolute;
+      height: 100vh;
+      width: 40%;
+      right: -40%;
+      top: 0;
+      background: white;
+      transition: 1s;
+    }
+
+    ul {
+      padding-top: 80px;
+    }
+
+    li {
+      list-style: none;
+      padding-left: 10px;
+      font-size: large;
+      color: skyblue;
+    }
+
+    #humberger {
+      display: block;
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      width: 50px;
+      height: 44px;
+      cursor: pointer;
+      transition: 1s;
+    }
+
+    .bar {
+      display: block;
+      position: absolute;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background-color: white;
+      transition: 1s;
+      border-radius: 4px;
+    }
+
+    #bar1 {
+      top: 0;
+    }
+
+    #bar2 {
+      top: 20px;
+    }
+
+    #bar3 {
+      bottom: 0;
+    }
+
+    h1 {
+      padding-left: 10px;
+      color: white;
+      line-height: 90px;
+    }
+
+    .in {
+      transform: translateX(-100%);
+    }
+
+    .bar1,
+    .bar2,
+    .bar3 {
+      background: skyblue;
+    }
+
+    .bar1 {
+      transform: translateY(20px) rotate(-45deg);
+      top: 0;
+    }
+
+    .bar2 {
+      opacity: 0;
+    }
+
+    .bar3 {
+      transform: translateY(-20px) rotate(45deg);
+      bottom: 0;
+    }
+  </style>
+  <script>
+    const bartop = document.getElementById('bar1')
+    const barmid = document.getElementById('bar2')
+    const barbtm = document.getElementById('bar3')
+    const nav = document.getElementById('nav')
+    const humberger = document.getElementById('humberger')
+
+    humberger.addEventListener('click', () => {
+      bartop.classList.toggle('bar1')
+      barmid.classList.toggle('bar2')
+      barbtm.classList.toggle('bar3')
+      nav.classList.toggle('in')
+    })
+  </script>
+</body>
+
+</html>
